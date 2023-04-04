@@ -1,0 +1,31 @@
+header {
+    text-align: center;
+}
+.container {
+    width: 400px;
+    min-height: 370px;
+}
+
+.haveOrnot{
+    position: absolute;
+    bottom: 8px;
+    cursor: pointer
+}
+
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #000;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(175, 60, 60);
+    cursor: pointer;
+  }
+  

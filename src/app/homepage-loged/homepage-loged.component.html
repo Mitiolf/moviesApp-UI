@@ -1,0 +1,38 @@
+<nav>
+    <mat-toolbar color="primary">
+        <a id="goBack" mat-button>Movie App</a>
+      <span class="example-spacer"></span>
+
+        <button mat-button (click)="goCollection()">Collection</button>
+        <button mat-button (click)="logOut()">Log out</button>
+
+    </mat-toolbar>
+</nav>
+<header>
+    <h1>Movies List</h1>
+    <div class="search">
+
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+      <span class="example-spacer"></span>
+      <button mat-stroked-button (click)="add()">Add Movie</button>
+
+    </div>
+</header>
+<main>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let movie of movies | filter:searchText;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{movie.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Director: {{movie.director}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>{{movie.description}}</p>
+          <button mat-button color="primary" (click)="addToCollection(movie.title)">Rate</button>
+          <button *ngIf="isAdmin" mat-button (click)="edit(movie)">Edit</button>
+          <button *ngIf="isAdmin" mat-button color="warn" (click)="delete(movie)">Delete</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+</main>

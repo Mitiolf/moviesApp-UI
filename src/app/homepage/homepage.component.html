@@ -1,0 +1,29 @@
+
+<nav>
+    <mat-toolbar color="primary">
+        <a id="goBack" mat-button>Movie App</a>
+      <span class="example-spacer"></span>
+        <button mat-button (click)="login()">Log in</button>
+
+    </mat-toolbar>
+</nav>
+<header>
+    <h1>Movies List</h1>
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+</header>
+<main>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let movie of movies | filter:searchText; let i = index">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{movie.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Director: {{movie.director}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>{{movie.description}}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+</main>

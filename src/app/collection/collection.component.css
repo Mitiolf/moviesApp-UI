@@ -1,0 +1,20 @@
+header {
+    max-width: 900px;
+    text-align: center;
+    margin: 2em auto;
+}
+main {
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+mat-toolbar{
+    padding: 0 10%;
+}
+#goBack{
+    font-size: 1em;
+    letter-spacing: normal;
+}

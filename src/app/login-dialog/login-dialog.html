@@ -1,0 +1,55 @@
+<div mat-dialog-content class="container">
+
+    <span *ngIf="doRegister; then thenBlock else elseBlock"></span>
+    <ng-template #thenBlock>
+        <header class="pt-4">
+             <span (click)="onNoClick()" class="close">&times;</span>
+            <h1>Register</h1>
+        </header>
+            <form class="needs-validation d-grid gap-2" [formGroup]="userForm">
+
+                <mat-form-field >
+                    <mat-label>Username: </mat-label>
+                    <input type="text" matInput formControlName="username">
+                    <mat-error *ngIf="userForm.invalid">{{getErrorMessageUsername()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field >
+                    <mat-label>Password: </mat-label>
+                    <input type="text" matInput formControlName="password">
+                    <mat-error *ngIf="userForm.invalid">{{getErrorMessagePassword()}}</mat-error>
+                </mat-form-field>
+                
+                <div class="d-grid gap-2 col-8 mx-auto">
+                    <button mat-raised-button type="submit" (click)="onClick()">Register</button>
+                    <span class="text-danger">{{formError}}</span>
+                </div>
+                <span class="haveOrnot">Have account?<a class="col-10" (click)="togleRegister()"> Sign in</a></span>
+            </form>
+    </ng-template>
+    <ng-template #elseBlock>
+        <header class="pt-4">
+            <span (click)="onNoClick()" class="close">&times;</span>
+            <h1>Login</h1>
+        </header>
+            <form class="needs-validation d-grid gap-2" [formGroup]="userForm">
+
+                <mat-form-field >
+                    <mat-label>Username: </mat-label>
+                    <input type="text" matInput formControlName="username">
+                    <mat-error *ngIf="userForm.invalid">{{getErrorMessageUsername()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field >
+                    <mat-label>Password: </mat-label>
+                    <input type="text" matInput formControlName="password">
+                    <mat-error *ngIf="userForm.invalid">{{getErrorMessagePassword()}}</mat-error>
+                </mat-form-field>
+
+                <div class="d-grid gap-2 col-8 mx-auto">
+                    <button mat-raised-button type="submit" (click)="onClick()">Log in</button>
+                    <span class="text-danger">{{formError}}</span>
+                </div>
+                <span class="haveOrnot">Don't have account?<a class="col-10" (click)="togleRegister()"> Sign up</a></span>
+            </form>
+    </ng-template>
+
+</div>

@@ -1,0 +1,41 @@
+<div mat-dialog-content class="box">
+    <form class="needs-validation d-grid gap-2" [formGroup]="movieForm">
+      <div class="input-group has-validation">
+            <span *ngIf="data.add then add else edit"></span>
+            <ng-template #add>
+              <mat-form-field >
+                <mat-label>Title: </mat-label>
+                <input type="text" matInput formControlName="title">
+                <mat-error *ngIf="movieForm.invalid">{{getErrorMessageTitle()}}</mat-error>
+              </mat-form-field>
+            </ng-template>
+            <ng-template #edit>
+              <mat-form-field >
+                <mat-label>Title: </mat-label>
+                <input type="text" matInput formControlName="title" readonly>
+                <mat-error *ngIf="movieForm.invalid">{{getErrorMessageTitle()}}</mat-error>
+              </mat-form-field>
+            </ng-template>
+      </div>
+
+        
+      <mat-form-field >
+          <mat-label>Director: </mat-label>
+          <input type="text" matInput formControlName="director">
+          <mat-error *ngIf="movieForm.invalid">{{getErrorMessageDirector()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Description: </mat-label>
+        <textarea type="text" matInput formControlName="description"></textarea>
+        <mat-error *ngIf="movieForm.invalid">{{getErrorMessageDesc()}}</mat-error>
+      </mat-form-field>
+
+        <span>{{ formError }}</span>
+        <div mat-dialog-actions class="d-md-flex container">
+            <button mat-raised-button class="col" (click)="onNoClick()">Cancel</button>
+            <div *ngIf="data.add; then add2 else edit2"></div>
+                <ng-template #add2><button mat-raised-button class="col" (click)="onClick()">Add Movie</button></ng-template>
+                <ng-template #edit2><button mat-raised-button class="col" (click)="onClick()">Edit Movie</button></ng-template>
+        </div>
+    </form>
+  </div>

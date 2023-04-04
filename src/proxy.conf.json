@@ -1,0 +1,17 @@
+{
+    "/movies": {
+        "target": "http://localhost:5000",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/user": {
+        "target": "http://localhost:5000",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/collection": {
+        "target": "http://localhost:5000",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
